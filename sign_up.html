@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">  
+	    <title>LEECTF-SIGN UP</title>
+    
+	    <link href="sign_up_files/css.css" rel="stylesheet">
+	    <link href="sign_up_files/bootstrap.css" rel="stylesheet">
+	    <link href="sign_up_files/font-awesome.css" rel="stylesheet">
+	    <link href="sign_up_files/templatemo-style.css" rel="stylesheet">
+        <link href="sign_up_files/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="sign_up_files/normalize.css">
+		
+	</head>
+	
+	
+	<body style="overflow:-Scroll;overflow-y:hidden; width: 100%; height: 100%;"> 
+		<section id="slider">
+			<div class="single-slider">
+				<div id="particles-js">
+					
+				<canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas></div>
+				<!--登陆窗口-->
+				<div class="templatemo-content-widget templatemo-login-widget white-gray-bg">
+	       			<form action="php/sign_up.php" method="post" onsubmit="return check()">
+						<center>
+	          				<h1 style="font-family: 'Comic Sans MS', cursive; font-size:30pt">SIGN UP LEECTF</h1>
+						</center>
+						<!--studentID输入窗-->
+	        			<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-user fa-fw"></i>
+								</div>	        		
+		              			<input name="username" id="username" class="form-control" placeholder="User Name" type="text"><br>           
+		          			</div>	 
+	        			</div>
+						<!--Email输入窗--> 
+						<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-envelope fa-fw"></i>
+								</div>	        		
+		              			<input name="email" class="form-control" id="email" placeholder="Student@bupt.edu.cn" type="email">           
+		          			</div>	
+	        			</div>
+						<!--password输入窗-->
+	        			<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-key fa-fw"></i>
+								</div>	        		
+		              			<input name="password" id="password" class="form-control" placeholder="********" type="password">           
+		          			</div>	
+	        			</div>
+						<!--spassword确认窗--> 
+						<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-warning fa-fw"></i>
+								</div>	        		
+		              			<input name="assertpassword" id="assertpassword" class="form-control" placeholder="Confirm Password" type="password">           
+		          			</div>	
+						</div>
+						
+						<!--验证码-->
+						<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-share fa-fw"></i>
+									</div>	        		
+									  <input name="authcode" id="authcode" class="form-control" placeholder="input the authcode" type="text">           
+								</div><br>
+								<p><img src="php/authcode.php" onClick="this.src='php/authcode.php?nocache='+Math.random()" style="cursor:hand" alt="点击换一张"/> click the picture to get another one </p>
+						</div>
+
+						<!--注册button-->
+						<div class="button-head">		
+						</div>
+						<div class="form-group">
+							<button type="submit" value="注册" class="templatemo-blue-button width-100">sign up</button>
+						</div>
+	        		</form>
+	    		</div>
+			</div>
+		</section>
+		
+		<!--js设置背景-->
+		<script src="sign_up_files/particles.js"></script>
+		<script src="sign_up_files/particle-code.js"></script>
+
+		
+		<script type="text/javascript">
+			function check() {
+				var username=document.getElementById("username").value;
+				var email=document.getElementById("email").value;
+				var password=document.getElementById("password").value;
+				var assertpassword=document.getElementById("assertpassword").value;
+				var regex=/^[/s]+$/;
+				
+				if(regex.test(username)||username.length==0){
+					alert("用户名格式错误");
+					return false;
+				}
+				if(regex.test(password)||password.length==0){
+					alert("密码格式错误");
+					return false; 		
+				}
+				if(password!=assertpassword){
+					alert("前后两次密码不一致");
+					return false;
+				}
+			}
+		</script>
+	
+
+</body></html>

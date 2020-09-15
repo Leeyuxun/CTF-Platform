@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">  
+	    <title>LEECTF-Login</title>
+    
+	    <link href="login_files/css.css" rel="stylesheet">
+	    <link href="login_files/bootstrap.css" rel="stylesheet">
+	    <link href="login_files/font-awesome.css" rel="stylesheet">
+	    <link href="login_files/templatemo-style.css" rel="stylesheet">
+        <link href="login_files/style.css" rel="stylesheet">
+        <link href="login_files/color.css" rel="stylesheet">
+		<link rel="stylesheet" href="login_files/normalize.css">
+		
+	</head>
+	
+	
+	<body style="overflow:-Scroll;overflow-y:hidden; width: 100%; height: 100%;">
+		<section id="slider">
+			<div class="single-slider">
+				<div id="particles-js">
+					
+				<canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas></div>
+				<!--登陆窗口-->
+				<div class="templatemo-content-widget templatemo-login-widget white-gray-bg">
+	       			<form action="php/login.php" method="post" onsubmit="return enter()">
+						<center>
+	          				<h1 style=" font-family: 'Comic Sans MS', cursive; font-size:30pt">LOGIN LEECTF</h1>
+						</center>
+						<!--studentID输入窗-->
+	        			<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-user fa-fw"></i>
+								</div>	        		
+		              			<input name="username" id="username" class="form-control" placeholder="User Name" type="text"><br>           
+		          			</div>	
+	        			</div>
+						<!--passward输入窗-->
+	        			<div class="form-group">
+	        				<div class="input-group">
+		        				<div class="input-group-addon"><i class="fa fa-key fa-fw"></i>
+								</div>	        		
+		              			<input name="password" id="password" class="form-control" placeholder="********" type="password"><br>           
+		          			</div>	
+						</div>
+						<!--验证码-->
+						<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-share fa-fw"></i>
+									</div>	        		
+									  <input name="authcode" id="authcode" class="form-control" placeholder="input the authcode" type="text">           
+								</div><br>
+								<p><img src="php/authcode.php" onClick="this.src='php/authcode.php?nocache='+Math.random()" style="cursor:hand" alt="点击换一张"/> click the picture to get another one </p>
+						</div>
+
+						<!--登陆button-->
+						<div class="button-head">		
+						</div>
+						<div class="form-group">
+							<button type="submit" class="templatemo-blue-button width-100">Login</button>
+						</div>
+	        		</form>
+					<center>
+						<!--重置密码-->
+						<p>Forget your password?<strong><a value="重置密码" onclick="reset_passwords();" class="blue-text">Reset it!</a></strong></p><br>
+						<!--点击注册-->
+						<p>Not a registered user yet?<strong><a value="注册" onclick="sign_up();" class="blue-text">Sign up now!</a></strong></p>
+					</center>
+	   	 		</div>
+			</div>
+		</section>
+		
+		
+				<!--js设置背景-->
+		<script src="login_files/particles.js"></script>
+		<script src="login_files/particle-code.js"></script>
+		
+		
+		<script type="text/javascript">
+			function enter()
+			{
+				var username=document.getElementById("username").value;//获取form中的用户名
+				var password=document.getElementById("password").value;
+				var regex=/^[/s]+$/;//声明一个判断用户名前后是否有空格的正则表达式
+				if(regex.test(username)||username.length==0)//判定用户名的是否前后有空格或者用户名是否为空
+					{
+						alert("用户名格式不对");
+						return false;
+					}
+				if(regex.test(password)||password.length==0)//同上述内容
+				{
+					alert("密码格式不对");
+					return false;
+				}
+				return true;
+			}
+			function sign_up()
+			{
+				window.location.href="sign_up.html";//跳转到注册页面
+			}
+			function reset_passwords()
+			{
+				window.location.href="reset_passwords.html";//跳转到重置密码页面
+			}
+		</script>
+	
+	
+</body></html>
